@@ -2,20 +2,25 @@
 
 function countLetters(input) {
   var letters = {};
+  var random = createObjectKeys(input);
+
+  for (var i = 0; i < random.length; i++) {
+    var position = letters[random[i]]
+    if(!position){
+    position = 1;
+    } else {
+    position++;
+    }
+  }
+  return letters;
+}
+
+function createObjectKeys(input) {
+
   input = input.replace(/ /g, "");
   input = input.split("");
 
-  for (var i = 0; i < input.length; i++) {
-    letters[input[i]] = 0;
-    //do I put a Conditional here? or create a separate function?
-    if(letters[input[i]] == "h") {
-      letters[input.l] = +1;
-    } 
-
-  }
-
-  return letters;
-
+  return input
 }
 
 console.log(countLetters("lighthouse in the house"));
